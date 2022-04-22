@@ -15,6 +15,11 @@ public class Name {
         return new Name(name);
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     private void validate(String value) {
         if (value.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(INVALID_NAME_ERROR);
