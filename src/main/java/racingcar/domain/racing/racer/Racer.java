@@ -10,9 +10,7 @@ public class Racer {
     private final Accelerator accelerator;
 
     private Racer(Accelerator accelerator) {
-        if (Objects.isNull(accelerator)) {
-            throw new IllegalArgumentException(ACCELERATOR_VALIDATION_ERROR);
-        }
+        validateNonNull(accelerator);
         this.accelerator = accelerator;
     }
 
@@ -22,5 +20,11 @@ public class Racer {
 
     public Car drive(Car car) {
         return car.accelerate(accelerator);
+    }
+
+    private void validateNonNull(Accelerator accelerator) {
+        if (Objects.isNull(accelerator)) {
+            throw new IllegalArgumentException(ACCELERATOR_VALIDATION_ERROR);
+        }
     }
 }

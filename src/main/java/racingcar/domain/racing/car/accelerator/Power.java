@@ -5,9 +5,9 @@ public class Power {
     private static final int MAXIMUM_POWER = 9;
 
     private static final String MIN_POWER_VALIDATION_ERROR =
-            "Power should be greater than or equal to " + MINIMUM_POWER;
+            "파워값은 최소 " + MINIMUM_POWER + " 이상의 값만 허용합니다.";
     private static final String MAX_POWER_VALIDATION_ERROR =
-            "Power should be less than or equal to " + MAXIMUM_POWER;
+            "파워값은 최대 " + MAXIMUM_POWER + " 이하의 값만 허용합니다.";
 
     private final int power;
 
