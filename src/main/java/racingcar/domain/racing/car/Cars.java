@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Cars {
+    private static final String EMPTY_NAME_ERROR = "자동차 이름은 정의되어야 합니다.";
     private static final String NULL_NAME_ERROR = "자동차 이름은 null이 될 수 없습니다.";
 
     private static final String CAR_NAME_DELIMITER = ",";
@@ -14,12 +15,16 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(String carNames) {
-        validateNonNull(carNames);
+        validate(carNames);
         cars = generateCars(carNames);
     }
 
     public static Cars from(String carNames) {
         return new Cars(carNames);
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 
     public int count() {
@@ -34,6 +39,17 @@ public class Cars {
             cars.add(Car.of(carName, STARTING_POINT));
         }
         return cars;
+    }
+
+    private void validate(String carNames) {
+        validateNonNull(carNames);
+        validateEmpty(carNames);
+    }
+
+    private void validateEmpty(String carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException(EMPTY_NAME_ERROR);
+        }
     }
 
     private void validateNonNull(String value) {
