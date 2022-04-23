@@ -14,6 +14,10 @@ public class Cars {
 
     private final List<Car> cars;
 
+    private Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     private Cars(String carNames) {
         validate(carNames);
         cars = generateCars(carNames);
@@ -21,6 +25,10 @@ public class Cars {
 
     public static Cars from(String carNames) {
         return new Cars(carNames);
+    }
+
+    public static Cars from(List<Car> cars) {
+        return new Cars(cars);
     }
 
     public List<Car> getCars() {

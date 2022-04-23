@@ -24,7 +24,7 @@ public class Car {
         return new Car(name, accelerator.moveCar(location));
     }
 
-    int getLocation() {
+    public int getLocation() {
         return location.get();
     }
 }
