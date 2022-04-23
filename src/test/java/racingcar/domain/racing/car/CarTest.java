@@ -50,7 +50,6 @@ public class CarTest {
         @Nested
         @DisplayName("전진 검사")
         class 전진_검사 {
-
             @BeforeEach
             void setUp() {
                 accelerator = Accelerator.from(MOVING_FORWARD);
@@ -66,7 +65,6 @@ public class CarTest {
         @Nested
         @DisplayName("정지 검사")
         class 정지_검사 {
-
             @BeforeEach
             void setUp() {
                 accelerator = Accelerator.from(STOP);

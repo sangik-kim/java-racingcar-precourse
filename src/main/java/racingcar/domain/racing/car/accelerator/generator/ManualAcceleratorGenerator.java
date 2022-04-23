@@ -4,7 +4,6 @@ import racingcar.domain.racing.car.accelerator.Accelerator;
 import racingcar.domain.racing.car.accelerator.Power;
 
 public class ManualAcceleratorGenerator implements AcceleratorGenerator {
-
     private Power power;
 
     private ManualAcceleratorGenerator(int power) {

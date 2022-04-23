@@ -10,7 +10,6 @@ import racingcar.domain.racing.car.accelerator.generator.AcceleratorGenerator;
 import racingcar.domain.racing.car.accelerator.generator.ManualAcceleratorGenerator;
 
 public class RacerTest {
-
     private static final int ORIGINAL_LOCATION = 0;
     private static final int MOVING_FORWARD = 4;
 
