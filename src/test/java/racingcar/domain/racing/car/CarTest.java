@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.racing.car.accelerator.Accelerator;
 
 public class CarTest {
     private static final int MOVING_FORWARD = 4;
@@ -38,7 +39,7 @@ public class CarTest {
     @Nested
     @DisplayName("자동차 위치값 변화 검사")
     class 자동차_위치값_변화_검사 {
-
+        private Accelerator accelerator;
         private Car car;
 
         @BeforeEach
@@ -46,16 +47,36 @@ public class CarTest {
             car = Car.of(VALID_CAR_NAME, ORIGINAL_LOCATION);
         }
 
-        @Test
-        @DisplayName("값이 4 이상일 경우 전진한다")
-        void 값이_4_이상일_경우_전진한다() {
-            assertThat(car.accelerate(MOVING_FORWARD).getLocation()).isEqualTo(ORIGINAL_LOCATION + LOCATION_INCREMENT);
+        @Nested
+        @DisplayName("전진 검사")
+        class 전진_검사 {
+
+            @BeforeEach
+            void setUp() {
+                accelerator = Accelerator.from(MOVING_FORWARD);
+            }
+
+            @Test
+            @DisplayName("값이 4 이상일 경우 전진한다")
+            void 값이_4_이상일_경우_전진한다() {
+                assertThat(car.accelerate(accelerator).getLocation()).isEqualTo(ORIGINAL_LOCATION + LOCATION_INCREMENT);
+            }
         }
 
-        @Test
-        @DisplayName("값이 3 이하일 경우 멈춘다")
-        void 값이_3_이하일_경우_멈춘다() {
-            assertThat(car.accelerate(STOP).getLocation()).isEqualTo(ORIGINAL_LOCATION);
+        @Nested
+        @DisplayName("정지 검사")
+        class 정지_검사 {
+
+            @BeforeEach
+            void setUp() {
+                accelerator = Accelerator.from(STOP);
+            }
+
+            @Test
+            @DisplayName("값이 3 이하일 경우 멈춘다")
+            void 값이_3_이하일_경우_멈춘다() {
+                assertThat(car.accelerate(accelerator).getLocation()).isEqualTo(ORIGINAL_LOCATION);
+            }
         }
     }
 }

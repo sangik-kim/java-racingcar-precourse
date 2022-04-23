@@ -1,11 +1,15 @@
 package racingcar.domain.racing.car;
 
-public class Car {
-    private static final int MINIMUM_GO_VALUE = 4;
-    private static final int INCREMENT = 1;
+import racingcar.domain.racing.car.accelerator.Accelerator;
 
+public class Car {
     private final Name name;
     private final Location location;
+
+    private Car(Name name, Location location) {
+        this.name = name;
+        this.location = location;
+    }
 
     private Car(String name, int location) {
         this.name = Name.from(name);
@@ -16,15 +20,11 @@ public class Car {
         return new Car(name, location);
     }
 
-    public Car accelerate(int accelerator) {
-        return accelerator < MINIMUM_GO_VALUE ? this : new Car(getName(), getLocation() + INCREMENT);
+    public Car accelerate(Accelerator accelerator) {
+        return new Car(name, accelerator.moveCar(location));
     }
 
     int getLocation() {
         return location.get();
-    }
-
-    String getName() {
-        return name.toString();
     }
 }
