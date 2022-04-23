@@ -6,19 +6,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.racing.car.Car;
-import racingcar.domain.racing.car.accelerator.Accelerator;
+import racingcar.domain.racing.car.accelerator.generator.AcceleratorGenerator;
+import racingcar.domain.racing.car.accelerator.generator.ManualAcceleratorGenerator;
 
 public class RacerTest {
 
     private static final int ORIGINAL_LOCATION = 0;
+    private static final int MOVING_FORWARD = 4;
 
     private Car car;
     private Racer racer;
 
     @BeforeEach
     void setUp() {
-        Accelerator accelerator = Accelerator.from(4);
-        racer = Racer.from(accelerator);
+        AcceleratorGenerator acceleratorGenerator = ManualAcceleratorGenerator.from(MOVING_FORWARD);
+        racer = Racer.from(acceleratorGenerator);
 
         car = Car.of("NZCar", ORIGINAL_LOCATION);
     }

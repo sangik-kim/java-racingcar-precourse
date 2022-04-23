@@ -2,29 +2,29 @@ package racingcar.domain.racing.racer;
 
 import java.util.Objects;
 import racingcar.domain.racing.car.Car;
-import racingcar.domain.racing.car.accelerator.Accelerator;
+import racingcar.domain.racing.car.accelerator.generator.AcceleratorGenerator;
 
 public class Racer {
-    private static final String ACCELERATOR_VALIDATION_ERROR = "Accelerator should not be null!";
+    private static final String ACCELERATOR_GENERATOR_NULL_ERROR = "AcceleratorGenerator는 null 값을 가질 수 없습니다.";
 
-    private final Accelerator accelerator;
+    private final AcceleratorGenerator acceleratorGenerator;
 
-    private Racer(Accelerator accelerator) {
-        validateNonNull(accelerator);
-        this.accelerator = accelerator;
+    private Racer(AcceleratorGenerator acceleratorGenerator) {
+        validateNonNull(acceleratorGenerator);
+        this.acceleratorGenerator = acceleratorGenerator;
     }
 
-    public static Racer from(Accelerator accelerator) {
-        return new Racer(accelerator);
+    public static Racer from(AcceleratorGenerator acceleratorGenerator) {
+        return new Racer(acceleratorGenerator);
     }
 
     public Car drive(Car car) {
-        return car.accelerate(accelerator);
+        return car.accelerate(acceleratorGenerator.generate());
     }
 
-    private void validateNonNull(Accelerator accelerator) {
-        if (Objects.isNull(accelerator)) {
-            throw new IllegalArgumentException(ACCELERATOR_VALIDATION_ERROR);
+    private void validateNonNull(AcceleratorGenerator acceleratorGenerator) {
+        if (Objects.isNull(acceleratorGenerator)) {
+            throw new IllegalArgumentException(ACCELERATOR_GENERATOR_NULL_ERROR);
         }
     }
 }
