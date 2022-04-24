@@ -21,6 +21,12 @@ public class RacingTest {
         assertThat(createRacing().getParticipants().count()).isEqualTo(PARTICIPANTS_COUNT);
     }
 
+    @Test
+    @DisplayName("레이싱을 시작하면 레이싱 결과를 반환한다")
+    void 레이싱을_시작하면_레이싱_결과를_반환한다() {
+        assertThat(createRacing().start(TryCount.from(5))).isNotNull().isInstanceOf(RacingResult.class);
+    }
+
     private Racing createRacing() {
         return Racing.from(CAR_NAMES);
     }
