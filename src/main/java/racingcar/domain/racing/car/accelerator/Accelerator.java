@@ -7,6 +7,7 @@ import static racingcar.domain.constant.RacingGameExceptions.POWER_NULL_ERROR;
 
 import java.util.Objects;
 import racingcar.domain.racing.car.Location;
+import racingcar.exception.RacingCarGameException;
 
 public class Accelerator {
     private final Power power;
@@ -30,7 +31,7 @@ public class Accelerator {
 
     public Location moveCar(Location currentLocation) {
         if (Objects.isNull(currentLocation)) {
-            throw new IllegalArgumentException(LOCATION_NULL_ERROR);
+            throw illegalArgumentException(LOCATION_NULL_ERROR);
         }
         return isMovingForward() ? currentLocation.add(MOVED_DISTANCE) : currentLocation;
     }
@@ -41,7 +42,13 @@ public class Accelerator {
 
     private void validate(Power power) {
         if (Objects.isNull(power)) {
-            throw new IllegalArgumentException(POWER_NULL_ERROR);
+            throw illegalArgumentException(POWER_NULL_ERROR);
         }
     }
+
+    private IllegalArgumentException illegalArgumentException(String errorMessage) {
+        return RacingCarGameException.throwIllegalArgumentException(errorMessage);
+    }
+
+
 }

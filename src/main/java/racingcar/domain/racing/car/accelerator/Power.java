@@ -5,6 +5,8 @@ import static racingcar.domain.constant.RacingGameConfiguration.MINIMUM_POWER;
 import static racingcar.domain.constant.RacingGameExceptions.MAX_POWER_VALIDATION_ERROR;
 import static racingcar.domain.constant.RacingGameExceptions.MIN_POWER_VALIDATION_ERROR;
 
+import racingcar.exception.RacingCarGameException;
+
 public class Power {
     private final int value;
 
@@ -28,13 +30,17 @@ public class Power {
 
     private void validateMin(int power) {
         if (power < MINIMUM_POWER) {
-            throw new IllegalArgumentException(MIN_POWER_VALIDATION_ERROR);
+            throw illegalArgumentException(MIN_POWER_VALIDATION_ERROR);
         }
     }
 
     private void validateMax(int power) {
         if (power > MAXIMUM_POWER) {
-            throw new IllegalArgumentException(MAX_POWER_VALIDATION_ERROR);
+            throw illegalArgumentException(MAX_POWER_VALIDATION_ERROR);
         }
+    }
+
+    private IllegalArgumentException illegalArgumentException(String errorMessage) {
+        return RacingCarGameException.throwIllegalArgumentException(errorMessage);
     }
 }

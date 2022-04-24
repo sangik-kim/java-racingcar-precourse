@@ -1,6 +1,7 @@
 package racingcar.dto.request;
 
 import java.util.Objects;
+import racingcar.exception.RacingCarGameException;
 
 public class TryCount {
     private static final String NOTNULL_ERROR = "시도 횟수를 입력해 주세요.";
@@ -30,19 +31,23 @@ public class TryCount {
         try {
             return Integer.parseInt(tryCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(TYPE_ERROR);
+            throw illegalArgumentException(TYPE_ERROR);
         }
     }
 
     private void validateNonEmpty(String tryCount) {
         if (tryCount.isEmpty()) {
-            throw new IllegalArgumentException(NOTNULL_ERROR);
+            throw illegalArgumentException(NOTNULL_ERROR);
         }
     }
 
     private void validateNonNull(String tryCount) {
         if (Objects.isNull(tryCount)) {
-            throw new IllegalArgumentException(NOTNULL_ERROR);
+            throw illegalArgumentException(NOTNULL_ERROR);
         }
+    }
+
+    private IllegalArgumentException illegalArgumentException(String errorMessage) {
+        return RacingCarGameException.throwIllegalArgumentException(errorMessage);
     }
 }

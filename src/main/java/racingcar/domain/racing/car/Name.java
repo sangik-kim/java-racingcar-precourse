@@ -5,6 +5,7 @@ import static racingcar.domain.constant.RacingGameExceptions.INVALID_NAME_ERROR;
 import static racingcar.domain.constant.RacingGameExceptions.NULL_NAME_ERROR;
 
 import java.util.Objects;
+import racingcar.exception.RacingCarGameException;
 
 public class Name {
     private final String value;
@@ -34,13 +35,17 @@ public class Name {
 
     private void validateMaxLength(String value) {
         if (value.length() > CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(INVALID_NAME_ERROR);
+            throw illegalArgumentException(INVALID_NAME_ERROR);
         }
     }
 
     private void validateNonNull(String value) {
         if (Objects.isNull(value)) {
-            throw new IllegalArgumentException(NULL_NAME_ERROR);
+            throw illegalArgumentException(NULL_NAME_ERROR);
         }
+    }
+
+    private IllegalArgumentException illegalArgumentException(String errorMessage) {
+        return RacingCarGameException.throwIllegalArgumentException(errorMessage);
     }
 }

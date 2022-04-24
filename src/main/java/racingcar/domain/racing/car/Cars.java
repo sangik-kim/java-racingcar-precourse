@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import racingcar.exception.RacingCarGameException;
 
 public class Cars {
     private final List<Car> carList;
@@ -55,13 +56,17 @@ public class Cars {
 
     private void validateEmpty(String carNames) {
         if (carNames.isEmpty()) {
-            throw new IllegalArgumentException(EMPTY_NAME_ERROR);
+            throw illegalArgumentException(EMPTY_NAME_ERROR);
         }
     }
 
     private void validateNonNull(String value) {
         if (Objects.isNull(value)) {
-            throw new IllegalArgumentException(NULL_NAME_ERROR);
+            throw illegalArgumentException(NULL_NAME_ERROR);
         }
+    }
+
+    private IllegalArgumentException illegalArgumentException(String errorMessage) {
+        return RacingCarGameException.throwIllegalArgumentException(errorMessage);
     }
 }
