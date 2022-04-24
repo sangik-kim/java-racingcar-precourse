@@ -1,10 +1,12 @@
 package racingcar.controller;
 
 import racingcar.domain.racing.Racing;
+import racingcar.domain.racing.RacingResult;
 import racingcar.domain.racing.racer.Winner;
 import racingcar.dto.CarNames;
 import racingcar.dto.TryCount;
 import racingcar.dto.WinnerNames;
+import racingcar.dto.response.RacingTryResult;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
@@ -15,15 +17,21 @@ public class RacingCarGameController {
     }
 
     public void startGame() {
-        Winner winner = startRacing();
-        showWinner(winner);
+        RacingResult result = startRacing();
+        showTryResults(result);
+        showWinner(result.getWinner());
+    }
+
+    private void showTryResults(RacingResult result) {
+        racingCarGameView.showResult();
+        result.getHistory().get().forEach(cars -> racingCarGameView.showTryResult(RacingTryResult.from(cars)));
     }
 
     private void showWinner(Winner winner) {
         racingCarGameView.showWinners(WinnerNames.from(winner));
     }
 
-    private Winner startRacing() {
+    private RacingResult startRacing() {
         Racing racing = Racing.from(getCarNames().get(), getTryCount().get());
         return racing.start();
     }

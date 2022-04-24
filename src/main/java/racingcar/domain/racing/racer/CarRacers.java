@@ -8,14 +8,14 @@ import racingcar.domain.racing.car.Cars;
 import racingcar.domain.racing.car.accelerator.generator.AcceleratorGenerator;
 
 public class CarRacers {
-    private final Map<Racer, Car> carRacerList;
+    private final Map<Racer, Car> racerCarMap;
 
-    CarRacers(Map<Racer, Car> carRacerList) {
-        this.carRacerList = carRacerList;
+    CarRacers(Map<Racer, Car> racerCarMap) {
+        this.racerCarMap = racerCarMap;
     }
 
     private CarRacers(Cars cars, AcceleratorGenerator acceleratorGenerator) {
-        carRacerList = generateRacers(cars, acceleratorGenerator);
+        racerCarMap = generateRacers(cars, acceleratorGenerator);
     }
 
     public static CarRacers from(Cars cars, AcceleratorGenerator acceleratorGenerator) {
@@ -24,7 +24,7 @@ public class CarRacers {
 
     public CarRacers race() {
         Map<Racer, Car> racerCarMap = new LinkedHashMap<>();
-        for (Map.Entry<Racer, Car> entry : carRacerList.entrySet()) {
+        for (Map.Entry<Racer, Car> entry : this.racerCarMap.entrySet()) {
             Racer racer = entry.getKey();
             Car car = entry.getValue();
             racerCarMap.put(racer, racer.drive(car));
@@ -32,8 +32,12 @@ public class CarRacers {
         return new CarRacers(racerCarMap);
     }
 
+    public Cars getCars() {
+        return Cars.from(new ArrayList<>(racerCarMap.values()));
+    }
+
     public Winner getWinner() {
-        return Winner.find(new ArrayList<>(carRacerList.values()));
+        return Winner.find(new ArrayList<>(racerCarMap.values()));
     }
 
     private Map<Racer, Car> generateRacers(Cars cars, AcceleratorGenerator acceleratorGenerator) {

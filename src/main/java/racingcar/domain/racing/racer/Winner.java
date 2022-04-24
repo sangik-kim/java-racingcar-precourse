@@ -12,7 +12,7 @@ public class Winner {
     private final Cars winners;
 
     private Winner(List<Car> allParticipants) {
-        this.winners = Cars.from(findWinners(allParticipants));
+        winners = Cars.from(findWinners(allParticipants));
     }
 
     public static Winner find(List<Car> allParticipants) {
