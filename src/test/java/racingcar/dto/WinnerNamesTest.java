@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.racing.car.Car;
 import racingcar.domain.racing.racer.Winner;
+import racingcar.dto.response.WinnerNames;
 
 public class WinnerNamesTest {
     private Winner winner;

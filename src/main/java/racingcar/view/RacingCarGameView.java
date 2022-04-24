@@ -6,9 +6,9 @@ import static racingcar.view.constant.ViewConstant.SHOW_RESULT;
 import static racingcar.view.constant.ViewConstant.SHOW_TRY_RESULT;
 import static racingcar.view.constant.ViewConstant.SHOW_WINNERS;
 
-import racingcar.dto.CarNames;
-import racingcar.dto.TryCount;
-import racingcar.dto.WinnerNames;
+import racingcar.dto.request.CarNames;
+import racingcar.dto.request.TryCount;
+import racingcar.dto.response.WinnerNames;
 import racingcar.dto.response.RacingTryResult;
 import racingcar.view.userinferface.GameUserInterface;
 

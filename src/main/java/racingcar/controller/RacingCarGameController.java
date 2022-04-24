@@ -3,9 +3,9 @@ package racingcar.controller;
 import racingcar.domain.racing.Racing;
 import racingcar.domain.racing.RacingResult;
 import racingcar.domain.racing.racer.Winner;
-import racingcar.dto.CarNames;
-import racingcar.dto.TryCount;
-import racingcar.dto.WinnerNames;
+import racingcar.dto.request.CarNames;
+import racingcar.dto.request.TryCount;
+import racingcar.dto.response.WinnerNames;
 import racingcar.dto.response.RacingTryResult;
 import racingcar.view.RacingCarGameView;
 
