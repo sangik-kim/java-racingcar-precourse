@@ -8,8 +8,8 @@ import static racingcar.view.constant.ViewConstant.SHOW_WINNERS;
 
 import racingcar.dto.request.CarNames;
 import racingcar.dto.request.TryCount;
-import racingcar.dto.response.WinnerNames;
 import racingcar.dto.response.RacingTryResult;
+import racingcar.dto.response.WinnerNames;
 import racingcar.view.userinferface.GameUserInterface;
 
 public class RacingCarGameView {
@@ -37,5 +37,9 @@ public class RacingCarGameView {
 
     public void showWinners(WinnerNames winnerNames) {
         gameUserInterface.show(String.format(SHOW_WINNERS, winnerNames.get()));
+    }
+
+    public void showError(String error) {
+        gameUserInterface.error(error);
     }
 }

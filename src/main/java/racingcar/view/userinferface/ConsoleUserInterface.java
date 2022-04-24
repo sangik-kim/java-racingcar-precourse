@@ -14,6 +14,11 @@ public class ConsoleUserInterface implements GameUserInterface {
     }
 
     @Override
+    public void error(String errorMessage) {
+        printer.print(String.format("[ERROR] %s\n", errorMessage));
+    }
+
+    @Override
     public void show(String message) {
         printer.print(message);
     }

@@ -8,27 +8,25 @@ import racingcar.domain.racing.racer.CarRacers;
 
 public class Racing {
     private final Cars participants;
-    private final TryCount tryCount;
 
-    private Racing(String carNames, int tryCount) {
+    private Racing(String carNames) {
         this.participants = Cars.from(carNames);
-        this.tryCount = TryCount.from(tryCount);
     }
 
-    public static Racing from(String carNames, int tryCount) {
-        return new Racing(carNames, tryCount);
+    public static Racing from(String carNames) {
+        return new Racing(carNames);
     }
 
-    public RacingResult start() {
+    public RacingResult start(TryCount tryCount) {
         CarRacers carRacers = createCarRacers();
-        return race(carRacers);
+        return race(tryCount, carRacers);
     }
 
     public Cars getParticipants() {
         return participants;
     }
 
-    private RacingResult race(CarRacers carRacers) {
+    private RacingResult race(TryCount tryCount, CarRacers carRacers) {
         List<Cars> history = new ArrayList<>();
         for (int i = 0; i < tryCount.get(); i++) {
             carRacers = carRacers.race();

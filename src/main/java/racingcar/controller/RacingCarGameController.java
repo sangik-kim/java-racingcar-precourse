@@ -2,11 +2,10 @@ package racingcar.controller;
 
 import racingcar.domain.racing.Racing;
 import racingcar.domain.racing.RacingResult;
+import racingcar.domain.racing.TryCount;
 import racingcar.domain.racing.racer.Winner;
-import racingcar.dto.request.CarNames;
-import racingcar.dto.request.TryCount;
-import racingcar.dto.response.WinnerNames;
 import racingcar.dto.response.RacingTryResult;
+import racingcar.dto.response.WinnerNames;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
@@ -32,15 +31,29 @@ public class RacingCarGameController {
     }
 
     private RacingResult startRacing() {
-        Racing racing = Racing.from(getCarNames().get(), getTryCount().get());
-        return racing.start();
+        Racing racing = createRacing();
+        return racing.start(getTryCount());
+    }
+
+    private Racing createRacing() {
+        try {
+            return Racing.from(racingCarGameView.getCarNames().get());
+        } catch (IllegalArgumentException ex) {
+            showError(ex.getMessage());
+            return createRacing();
+        }
     }
 
     private TryCount getTryCount() {
-        return racingCarGameView.getTryCount();
+        try {
+            return TryCount.from(racingCarGameView.getTryCount().get());
+        } catch (IllegalArgumentException ex) {
+            showError(ex.getMessage());
+            return getTryCount();
+        }
     }
 
-    private CarNames getCarNames() {
-        return racingCarGameView.getCarNames();
+    private void showError(String error) {
+        racingCarGameView.showError(error);
     }
 }

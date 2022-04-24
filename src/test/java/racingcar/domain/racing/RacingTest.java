@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 public class RacingTest {
     private static final String CAR_NAMES = "pobi,woni,jun";
     private static final int PARTICIPANTS_COUNT = 3;
-    private static final int TRY_COUNT = 5;
 
     @Test
     @DisplayName("자동차 이름과 시도횟수를 입력받아 생성한다")
@@ -23,6 +22,6 @@ public class RacingTest {
     }
 
     private Racing createRacing() {
-        return Racing.from(CAR_NAMES, TRY_COUNT);
+        return Racing.from(CAR_NAMES);
     }
 }
