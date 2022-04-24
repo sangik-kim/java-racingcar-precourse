@@ -20,26 +20,25 @@ public class Winner {
     }
 
     public List<Car> getWinners() {
-        return winners.getCars();
+        return winners.getCarList();
     }
 
     private List<Car> findWinners(List<Car> allParticipants) {
         int locationOfWinner = findLocationOfWinner(allParticipants);
 
-        List<Car> winners = new ArrayList<>();
+        List<Car> winnerList = new ArrayList<>();
         for (Car car : allParticipants) {
-            checkIfWinner(car, locationOfWinner).ifPresent((winner) -> winners.add(winner));
+            checkIfWinner(car, locationOfWinner).ifPresent(winnerList::add);
         }
-        return winners;
+        return winnerList;
     }
 
     private int findLocationOfWinner(List<Car> allParticipants) {
-        int locationOfWinner = Collections.max(allParticipants, Comparator.comparingInt(Car::getLocation))
+        return Collections.max(allParticipants, Comparator.comparingInt(Car::getLocation))
                 .getLocation();
-        return locationOfWinner;
     }
 
     private Optional<Car> checkIfWinner(Car car, int locationOfWinner) {
-        return locationOfWinner == car.getLocation() ? Optional.ofNullable(car) : Optional.empty();
+        return locationOfWinner == car.getLocation() ? Optional.of(car) : Optional.empty();
     }
 }

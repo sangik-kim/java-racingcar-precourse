@@ -1,19 +1,16 @@
 package racingcar.domain.racing.car.accelerator;
 
+import static racingcar.domain.constant.RacingGameConfiguration.MAXIMUM_POWER;
+import static racingcar.domain.constant.RacingGameConfiguration.MINIMUM_POWER;
+import static racingcar.domain.constant.RacingGameExceptions.MAX_POWER_VALIDATION_ERROR;
+import static racingcar.domain.constant.RacingGameExceptions.MIN_POWER_VALIDATION_ERROR;
+
 public class Power {
-    private static final int MINIMUM_POWER = 0;
-    private static final int MAXIMUM_POWER = 9;
+    private final int value;
 
-    private static final String MIN_POWER_VALIDATION_ERROR =
-            "파워값은 최소 " + MINIMUM_POWER + " 이상의 값만 허용합니다.";
-    private static final String MAX_POWER_VALIDATION_ERROR =
-            "파워값은 최대 " + MAXIMUM_POWER + " 이하의 값만 허용합니다.";
-
-    private final int power;
-
-    private Power(int power) {
-        validate(power);
-        this.power = power;
+    private Power(int value) {
+        validate(value);
+        this.value = value;
     }
 
     public static Power from(int power) {
@@ -21,7 +18,7 @@ public class Power {
     }
 
     boolean isGreaterThanOrEqualTo(int input) {
-        return power >= input;
+        return value >= input;
     }
 
     private void validate(int power) {

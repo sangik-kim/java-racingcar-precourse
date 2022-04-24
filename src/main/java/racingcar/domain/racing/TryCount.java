@@ -1,10 +1,9 @@
 package racingcar.domain.racing;
 
+import static racingcar.domain.constant.RacingGameConfiguration.MINIMUM_TRY;
+import static racingcar.domain.constant.RacingGameExceptions.INVALID_TRY_COUNT_ERROR;
+
 public class TryCount {
-    private static final int MINIMUM_TRY = 1;
-
-    private static final String INVALID_TRY_COUNT_ERROR = "시도 횟수는 최소 " + MINIMUM_TRY + " 이상이어야 합니다.";
-
     private final int count;
 
     public TryCount(int count) {

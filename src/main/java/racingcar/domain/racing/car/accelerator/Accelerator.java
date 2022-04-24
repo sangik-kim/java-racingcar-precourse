@@ -1,15 +1,14 @@
 package racingcar.domain.racing.car.accelerator;
 
+import static racingcar.domain.constant.RacingGameConfiguration.MINIMUM_GO_VALUE;
+import static racingcar.domain.constant.RacingGameConfiguration.MOVED_DISTANCE;
+import static racingcar.domain.constant.RacingGameExceptions.LOCATION_NULL_ERROR;
+import static racingcar.domain.constant.RacingGameExceptions.POWER_NULL_ERROR;
+
 import java.util.Objects;
 import racingcar.domain.racing.car.Location;
 
 public class Accelerator {
-    private static final String POWER_NULL_ERROR = "파워는 null이 될 수 없습니다.";
-    private static final String LOCATION_NULL_ERROR = "위치값은 null이 될 수 없습니다.";
-
-    private static final int MINIMUM_GO_VALUE = 4;
-    private static final int MOVED_DISTANCE = 1;
-
     private final Power power;
 
     private Accelerator(Power power) {

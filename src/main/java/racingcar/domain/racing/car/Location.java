@@ -3,10 +3,10 @@ package racingcar.domain.racing.car;
 import java.util.Objects;
 
 public class Location {
-    private final int location;
+    private final int value;
 
     public Location(int location) {
-        this.location = location;
+        this.value = location;
     }
 
     public static Location from(int location) {
@@ -14,11 +14,11 @@ public class Location {
     }
 
     public Location add(int distance) {
-        return new Location(location + distance);
+        return new Location(value + distance);
     }
 
     int get() {
-        return location;
+        return value;
     }
 
     @Override
@@ -30,11 +30,11 @@ public class Location {
             return false;
         }
         Location location1 = (Location) o;
-        return location == location1.location;
+        return value == location1.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(location);
+        return Objects.hash(value);
     }
 }
