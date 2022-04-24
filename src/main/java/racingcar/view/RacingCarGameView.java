@@ -5,6 +5,7 @@ import static racingcar.view.constant.ViewConstant.GET_TRY_COUNT;
 import static racingcar.view.constant.ViewConstant.SHOW_RESULT;
 
 import racingcar.dto.CarNames;
+import racingcar.dto.TryCount;
 import racingcar.view.userinferface.GameUserInterface;
 
 public class RacingCarGameView {
@@ -18,8 +19,8 @@ public class RacingCarGameView {
         return CarNames.from(gameUserInterface.getUserInput(GET_CAR_NAMES));
     }
 
-    public String getTryCount() {
-        return gameUserInterface.getUserInput(GET_TRY_COUNT);
+    public TryCount getTryCount() {
+        return TryCount.from(gameUserInterface.getUserInput(GET_TRY_COUNT));
     }
 
     public void showResult() {

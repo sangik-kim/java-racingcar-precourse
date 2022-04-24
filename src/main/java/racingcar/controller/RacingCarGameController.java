@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.dto.CarNames;
+import racingcar.dto.TryCount;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
@@ -12,5 +13,6 @@ public class RacingCarGameController {
 
     public void start() {
         CarNames carNames = racingCarGameView.getCarNames();
+        TryCount tryCount = racingCarGameView.getTryCount();
     }
 }
