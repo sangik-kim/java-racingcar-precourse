@@ -1,6 +1,9 @@
 package racingcar.domain.racing.racer;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.domain.racing.constant.TestConstant.MOVING_FORWARD;
+import static racingcar.domain.racing.constant.TestConstant.ORIGINAL_LOCATION;
+import static racingcar.domain.racing.constant.TestConstant.STOP;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,11 +17,6 @@ import racingcar.domain.racing.car.accelerator.generator.ManualAcceleratorGenera
 import racingcar.domain.racing.car.accelerator.generator.RandomAcceleratorGenerator;
 
 public class CarRacersTest {
-    private static final int ORIGINAL_LOCATION = 0;
-
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
     @Test
     @DisplayName("레이스가 끝나면 레이스 결과로 CarRacers를 반환한다")
     void 레이스가_끝나면_레이스_결과로_CarRacers를_반환한다() {

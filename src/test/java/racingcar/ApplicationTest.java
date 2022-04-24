@@ -3,14 +3,13 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.domain.racing.constant.TestConstant.MOVING_FORWARD;
+import static racingcar.domain.racing.constant.TestConstant.STOP;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
     private static final String ERROR_MESSAGE = "[ERROR]";
 
     @Test

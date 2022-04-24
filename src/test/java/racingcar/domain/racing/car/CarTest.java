@@ -2,6 +2,10 @@ package racingcar.domain.racing.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.domain.racing.constant.TestConstant.LOCATION_INCREMENT;
+import static racingcar.domain.racing.constant.TestConstant.MOVING_FORWARD;
+import static racingcar.domain.racing.constant.TestConstant.ORIGINAL_LOCATION;
+import static racingcar.domain.racing.constant.TestConstant.STOP;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,11 +14,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.racing.car.accelerator.Accelerator;
 
 public class CarTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-    private static final int ORIGINAL_LOCATION = 0;
-    private static final int LOCATION_INCREMENT = 1;
-
     private final String VALID_CAR_NAME = "다섯자이하";
     private final String INVALID_CAR_NAME = "여섯자이상임";
 

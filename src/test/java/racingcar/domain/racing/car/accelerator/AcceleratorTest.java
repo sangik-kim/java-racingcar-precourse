@@ -1,6 +1,9 @@
 package racingcar.domain.racing.car.accelerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.domain.racing.constant.TestConstant.MOVING_FORWARD;
+import static racingcar.domain.racing.constant.TestConstant.ORIGINAL_LOCATION;
+import static racingcar.domain.racing.constant.TestConstant.STOP;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,11 +11,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.racing.car.Location;
 
 public class AcceleratorTest {
-    private static final int ORIGINAL_LOCATION = 0;
-
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
     private Location initialLocation;
 
     @BeforeEach
