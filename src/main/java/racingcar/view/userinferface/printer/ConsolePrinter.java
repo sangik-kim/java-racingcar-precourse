@@ -1,4 +1,4 @@
-package racingcar.view.printer;
+package racingcar.view.userinferface.printer;
 
 public class ConsolePrinter implements Printer {
 

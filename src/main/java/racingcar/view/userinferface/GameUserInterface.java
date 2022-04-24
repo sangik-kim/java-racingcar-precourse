@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.view.userinferface;
 
 public interface GameUserInterface {
     void show(String message);

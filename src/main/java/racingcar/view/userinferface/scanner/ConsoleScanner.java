@@ -1,4 +1,4 @@
-package racingcar.view.scanner;
+package racingcar.view.userinferface.scanner;
 
 import camp.nextstep.edu.missionutils.Console;
 

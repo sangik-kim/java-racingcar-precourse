@@ -1,7 +1,7 @@
-package racingcar.view;
+package racingcar.view.userinferface;
 
-import racingcar.view.printer.Printer;
-import racingcar.view.scanner.Scanner;
+import racingcar.view.userinferface.printer.Printer;
+import racingcar.view.userinferface.scanner.Scanner;
 
 public class ConsoleUserInterface implements GameUserInterface {
 
