@@ -3,9 +3,11 @@ package racingcar.view;
 import static racingcar.view.constant.ViewConstant.GET_CAR_NAMES;
 import static racingcar.view.constant.ViewConstant.GET_TRY_COUNT;
 import static racingcar.view.constant.ViewConstant.SHOW_RESULT;
+import static racingcar.view.constant.ViewConstant.SHOW_WINNERS;
 
 import racingcar.dto.CarNames;
 import racingcar.dto.TryCount;
+import racingcar.dto.WinnerNames;
 import racingcar.view.userinferface.GameUserInterface;
 
 public class RacingCarGameView {
@@ -25,5 +27,9 @@ public class RacingCarGameView {
 
     public void showResult() {
         gameUserInterface.show(SHOW_RESULT);
+    }
+
+    public void showWinners(WinnerNames winnerNames) {
+        gameUserInterface.show(String.format(SHOW_WINNERS, winnerNames.get()));
     }
 }

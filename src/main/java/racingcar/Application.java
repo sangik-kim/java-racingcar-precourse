@@ -13,6 +13,6 @@ public class Application {
         RacingCarGameView gameView = new RacingCarGameView(gameUserInterface);
 
         RacingCarGameController gameController = new RacingCarGameController(gameView);
-        gameController.start();
+        gameController.startGame();
     }
 }
