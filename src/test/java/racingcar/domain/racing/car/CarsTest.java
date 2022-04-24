@@ -9,6 +9,7 @@ public class CarsTest {
     private static final String ONE_CAR = "하나";
     private static final String THREE_CARS = "aaa,bbb,ccc";
     private static final String FIVE_CARS = "111,222,333,444,555";
+    private static final String FIVE_CARS_WITH_SPACE = "  111, 222, 333, 444, 555   ";
 
     private static final int ONE = 1;
     private static final int THREE = 3;
@@ -20,5 +21,6 @@ public class CarsTest {
         assertThat(Cars.from(ONE_CAR).count()).isEqualTo(ONE);
         assertThat(Cars.from(THREE_CARS).count()).isEqualTo(THREE);
         assertThat(Cars.from(FIVE_CARS).count()).isEqualTo(FIVE);
+        assertThat(Cars.from(FIVE_CARS_WITH_SPACE).count()).isEqualTo(FIVE);
     }
 }

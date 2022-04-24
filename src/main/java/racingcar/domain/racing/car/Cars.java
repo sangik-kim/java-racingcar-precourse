@@ -43,7 +43,7 @@ public class Cars {
 
         List<String> carNameList = Arrays.asList(carNames.split(CAR_NAME_DELIMITER));
         for (String carName : carNameList) {
-            cars.add(Car.of(carName, STARTING_POINT));
+            cars.add(Car.of(carName.trim(), STARTING_POINT));
         }
         return cars;
     }
